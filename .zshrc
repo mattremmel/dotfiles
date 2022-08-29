@@ -207,6 +207,8 @@ alias l='exa -ahl'
 alias grep='rg'
 alias v='nvim'
 alias vi='nvim'
+alias lg='lazygit'
+alias ld='lazydocker'
 
 
 ### Bind keys
