@@ -1,0 +1,15 @@
+return {
+  "bashls",
+  "clangd",
+  "cssls",
+  "html",
+  "jsonls",
+  "marksman",
+  "omnisharp",
+  "pyright",
+  "rust_analyzer",
+  "sqls",
+  "sumneko_lua",
+  "tsserver",
+  "yamlls",
+}
