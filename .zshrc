@@ -326,6 +326,13 @@ zstyle '*' single-ignored show
 if [[ `uname` == "Darwin" ]]; then
 	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 	source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+    # Google Cloud config
+    # The next line updates PATH for the Google Cloud SDK.
+    if [ -f '/Users/matt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matt/google-cloud-sdk/path.zsh.inc'; fi
+
+    # The next line enables shell command completion for gcloud.
+    if [ -f '/Users/matt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/matt/google-cloud-sdk/completion.zsh.inc'; fi
 # Regular plugin location
 else
 	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -335,4 +342,3 @@ fi
 
 # Start Starship
 eval "$(starship init zsh)"
-
