@@ -47,6 +47,7 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;3
 
 # Tesouro macbook variables
 if [[ `uname` == "Darwin" ]]; then
+    LANG=en_US.UTF-8 # fixes an issue that caused tab-completion to break prompt
     export PATH="$PATH:/Users/matt/Library/Application Support/JetBrains/Toolbox/scripts"
     export PATH="$PATH:$HOME/.dotnet"
     eval "$(/opt/homebrew/bin/brew shellenv)"
@@ -311,9 +312,17 @@ zstyle '*' single-ignored show
 
 ### Source plugins
 ##################
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source /usr/share/fzf/key-bindings.zsh
-source /usr/share/fzf/completion.zsh
+# Tesouro macbook variables
+if [[ `uname` == "Darwin" ]]; then
+	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+	source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Regular plugin location
+else
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+	source /usr/share/fzf/key-bindings.zsh
+	source /usr/share/fzf/completion.zsh
+fi
 
 # Start Starship
 eval "$(starship init zsh)"
+
