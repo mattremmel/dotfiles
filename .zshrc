@@ -47,9 +47,19 @@ LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;3
 
 # Tesouro macbook variables
 if [[ `uname` == "Darwin" ]]; then
-    LANG=en_US.UTF-8 # fixes an issue that caused tab-completion to break prompt
+    # Fixes an issue that caused tab-completion to break prompt
+    LANG=en_US.UTF-8 
+
+    # Dotnet
     export PATH="$PATH:/Users/matt/Library/Application Support/JetBrains/Toolbox/scripts"
     export PATH="$PATH:$HOME/.dotnet"
+
+    # Node Version Manager
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+    # Brew
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
