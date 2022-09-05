@@ -52,7 +52,6 @@ if [[ `uname` == "Darwin" ]]; then
 
     # Dotnet
     export PATH="$PATH:/Users/matt/Library/Application Support/JetBrains/Toolbox/scripts"
-    export PATH="$PATH:$HOME/.dotnet"
 
     # Node Version Manager
     export NVM_DIR="$HOME/.nvm"
