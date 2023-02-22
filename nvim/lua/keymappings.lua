@@ -1,7 +1,7 @@
 local M = {}
 
 -- helper
-function map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs, opts)
     local options = { noremap = true }
     if opts then
         options = vim.tbl_extend("force", options, opts)
@@ -11,6 +11,7 @@ end
 
 local opts = { noremap = true, silent = true }
 
+-- TODO: For embedded require calls, create helper function to do pcall with helpful error
 -- TODO: only map keys for plugins if plugins are loaded
 
 -- leader
@@ -54,6 +55,7 @@ map("n", "<leader>ff", "<CMD>Telescope find_files<CR>", opts)
 map("n", "<leader>fF", "<CMD>Telescope find_files hidden=true no-ignore=true<CR>", opts)
 map("n", "<leader>fw", "<CMD>Telescope live_grep<CR>", opts)
 map("n", "<leader>fW", "<CMD>lua require('telescope.builtin').live_grep{ additional_args = function(args) return vim.list_extend(args, { '--hidden', '--no-ignore' }) end}<CR>", opts) -- TODO: find way to use :Telescope live_grep with these arguments
+map("n", "<leader>fb", "<CMD>Telescope buffers<CR>", opts)
 
 -- trouble
 map("n", "<leader>xx", "<CMD>TroubleToggle<CR>", opts)
@@ -67,8 +69,8 @@ map("n", "<leader>xr", "<CMD>TroubleToggle lsp_references<CR>", opts)
 map("n", "s", "<CMD>HopChar2<CR>", opts)
 
 -- toggleterm
-map("n", "<C-_>", "<CMD>lua require('config.toggleterm')._term_toggle()<CR>", opts)
-map("t", "<C-_>", "<CMD>lua require('config.toggleterm')._term_toggle()<CR>", opts)
+map("n", "<C-;>", "<CMD>lua require('config.toggleterm')._term_toggle()<CR>", opts)
+map("t", "<C-;>", "<CMD>lua require('config.toggleterm')._term_toggle()<CR>", opts)
 map("n", "<leader>tg", "<CMD>lua require('config.toggleterm')._lazygit_toggle()<CR>", opts)
 map("n", "<leader>td", "<CMD>lua require('config.toggleterm')._lazydocker_toggle()<CR>", opts)
 
@@ -77,7 +79,7 @@ map("n", "<leader>ft", "<CMD>TodoTelescope<CR>", opts)
 map("n", "<leader>xt", "<CMD>TodoTrouble<CR>", opts)
 
 -- lsp bindings
-function M.on_attach(client, bufnr)
+function M.attach(client, bufnr)
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
     map("n", "gD", vim.lsp.buf.declaration, bufopts)

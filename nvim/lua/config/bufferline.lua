@@ -6,7 +6,6 @@ function M.setup()
     return
   end
 
-  -- TODO: Explicity set full config
   bufferline.setup {
     options = {
       offsets = {

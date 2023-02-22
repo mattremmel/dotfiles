@@ -1,51 +1,25 @@
 local M = {}
 
 function M.setup()
-  local status_ok, lualine = pcall(require, "lualine")
-  if not status_ok then
-    return
-  end
+    local lualine_ok, lualine = pcall(require, "lualine")
+    if not lualine_ok then
+        vim.notify("Failed to load 'lualine' plugin", vim.log.levels.ERROR)
+        return
+    end
 
-  lualine.setup {
-    options = {
-      icons_enabled = true,
-      theme = 'auto',
-      component_separators = { left = '', right = '' },
-      section_separators = { left = '', right = '' },
-      disabled_filetypes = {
-        statusline = {},
-        winbar = {},
-      },
-      ignore_focus = {},
-      always_divide_middle = true,
-      globalstatus = false,
-      refresh = {
-        statusline = 1000,
-        tabline = 1000,
-        winbar = 1000,
-      }
-    },
-    sections = {
-      lualine_a = { 'mode' },
-      lualine_b = { 'branch', 'diff', 'diagnostics' },
-      lualine_c = { 'filename' },
-      lualine_x = { 'encoding', 'fileformat', 'filetype' },
-      lualine_y = { 'progress' },
-      lualine_z = { 'location' }
-    },
-    inactive_sections = {
-      lualine_a = {},
-      lualine_b = {},
-      lualine_c = { 'filename' },
-      lualine_x = { 'location' },
-      lualine_y = {},
-      lualine_z = {}
-    },
-    tabline = {},
-    winbar = {},
-    inactive_winbar = {},
-    extensions = {}
-  }
+    local nvim_navic_ok, nvim_navic = pcall(require, "nvim-navic")
+    if not nvim_navic_ok then
+        vim.notify("Failed to load 'nvim-navic' plugin", vim.log.levels.ERROR)
+        return
+    end
+
+    lualine.setup {
+        winbar = {
+            lualine_c = {
+                { nvim_navic.get_location, cond = nvim_navic.is_available },
+            }
+        }
+    }
 end
 
 return M

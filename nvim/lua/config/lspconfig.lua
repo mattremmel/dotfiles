@@ -1,12 +1,31 @@
 local M = {}
 
 function M.setup()
-    local status_ok, lspconfig = pcall(require, "lspconfig")
-    if not status_ok then
+    local lspconfig_ok, lspconfig = pcall(require, "lspconfig")
+    if not lspconfig_ok then
+        vim.notify("Failed to load 'lspconfig' plugin", vim.log.levels.ERROR)
         return
     end
 
-    local on_attach = require("keymappings").on_attach
+    local keymappings_ok, keymappings = pcall(require, "keymappings")
+    if not keymappings_ok then
+        vim.notify("Failed to load 'keymappings'", vim.log.levels.ERROR)
+        return
+    end
+
+    local nvim_navic_ok, nvim_navic = pcall(require, "nvim-navic")
+    if not nvim_navic_ok then
+        vim.notify("Failed to load 'nvim-navic' plugin", vim.log.levels.ERROR)
+        return
+    end
+
+    local on_attach = function(client, buffer)
+        keymappings.attach(client, buffer)
+
+        if client.server_capabilities.documentSymbolProvider then
+            nvim_navic.attach(client, buffer)
+        end
+    end
     local lsp_flags = {}
 
     -- global
@@ -32,7 +51,7 @@ function M.setup()
     )
 
     -- lua
-    lspconfig.sumneko_lua.setup {
+    lspconfig.lua_ls.setup {
         on_attach = on_attach,
         flags = lsp_flags,
         settings = {
@@ -41,17 +60,21 @@ function M.setup()
                 diagnostics = {
                     globals = { "vim" }
                 },
-                workspace = { library = vim.api.nvim_get_runtime_file("", true) },
+                workspace = {
+                    library = vim.api.nvim_get_runtime_file("", true),
+                    checkThirdParty = false
+                },
             }
         }
     }
 
+    -- omnisharp
     lspconfig.omnisharp.setup {
-        -- TODO: find way to dynamically find dll
-        cmd = { "dotnet", "/usr/lib/omnisharp-roslyn/OmniSharp.dll" },
-        enable_editorconfig_support = true,
+        on_attach = on_attach,
+        flags = lsp_flags,
     }
 
+    -- TODO: rust, typescript, python, c_sharp, docker, hcl, yamls + schemas, marksman, bashls, clangd, cmake, cssls, eslint, graphql, html, java, kotlin, go, jsonls, ruby, sql, stylua, toml
 end
 
 return M
