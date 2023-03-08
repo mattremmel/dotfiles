@@ -1,6 +1,6 @@
 -- tui
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.numberwidth = 2
 vim.opt.termguicolors = true
 vim.opt.showmode = true

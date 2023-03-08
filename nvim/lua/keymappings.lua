@@ -14,11 +14,6 @@ local opts = { noremap = true, silent = true }
 -- TODO: For embedded require calls, create helper function to do pcall with helpful error
 -- TODO: only map keys for plugins if plugins are loaded
 
--- leader
-vim.api.nvim_set_keymap("", "<Space>", "<Nop>", opts)
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
 -- navigation
 map("n", "j", "gj")
 map("n", "k", "gk")
@@ -69,10 +64,10 @@ map("n", "<leader>xr", "<CMD>TroubleToggle lsp_references<CR>", opts)
 map("n", "s", "<CMD>HopChar2<CR>", opts)
 
 -- toggleterm
-map("n", "<C-;>", "<CMD>lua require('config.toggleterm')._term_toggle()<CR>", opts)
-map("t", "<C-;>", "<CMD>lua require('config.toggleterm')._term_toggle()<CR>", opts)
-map("n", "<leader>tg", "<CMD>lua require('config.toggleterm')._lazygit_toggle()<CR>", opts)
-map("n", "<leader>td", "<CMD>lua require('config.toggleterm')._lazydocker_toggle()<CR>", opts)
+map("n", "<C-;>", "<CMD>lua toggleterm_default_toggle()<CR>", opts)
+map("t", "<C-;>", "<CMD>lua toggleterm_default_toggle()<CR>", opts)
+map("n", "<leader>tg", "<CMD>lua toggleterm_lazygit_toggle()<CR>", opts)
+map("n", "<leader>td", "<CMD>lua toggleterm_lazydocker_toggle()<CR>", opts)
 
 -- todo comments
 map("n", "<leader>ft", "<CMD>TodoTelescope<CR>", opts)
