@@ -1,5 +1,3 @@
-local opts = { noremap = true, silent = true }
-
 -- navigation
 vim.keymap.set("n", "j", "gj")
 vim.keymap.set("n", "k", "gk")
@@ -12,9 +10,9 @@ vim.keymap.set("v", "<", "<gv") -- don't lose selection when indenting
 vim.keymap.set("v", "=", "=gv") -- don't lose selection when indenting
 
 -- buffers
-vim.keymap.set("n", "<leader>w", "<CMD>w!<CR>", opts)
-vim.keymap.set("n", "<C-s>", "<CMD>w!<CR>", opts)
-vim.keymap.set("n", "<leader>qq", "<CMD>qa<CR>", opts)
+vim.keymap.set("n", "<leader>w", "<cmd>w!<cr>", {noremap = true, silent = true, desc = 'Write Buffer'})
+vim.keymap.set("n", "<C-s>", "<cmd>w!<cr>", {noremap = true, silent = true, desc = 'Write Buffer'})
+vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", {noremap = true, silent = true, desc = 'Quit Neovim'})
 
 -- windows
 vim.keymap.set("n", "<C-l>", "<C-w>l")
