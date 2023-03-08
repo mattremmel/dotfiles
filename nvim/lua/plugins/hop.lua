@@ -1,6 +1,8 @@
 return {
     'phaazon/hop.nvim',
     version = 'v2',
-    event = { 'BufReadPre', 'BufNewFile' },
+    keys = {
+        {"s", "<cmd>HopChar2<cr>", desc = "Star Hop movement"}
+    },
     opts = {}
 }

@@ -1,5 +1,7 @@
 return {
     'famiu/bufdelete.nvim',
-    event = { 'BufReadPre', 'BufNewFile' },
+    keys = {
+        {'<leader>c', '<cmd>Bdelete<cr>', desc = 'Close active buffer'}
+    },
     config = function() end
 }

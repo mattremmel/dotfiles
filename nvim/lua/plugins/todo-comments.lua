@@ -3,6 +3,10 @@ return {
     dependencies = {
         'nvim-lua/plenary.nvim',
     },
-    event = 'VeryLazy', -- TODO: This might not allow searching for todos from dashboard
+    cmd = {'TodoTelescope', 'TodoTrouble'},
+    keys = {
+        {'<leader>ft', '<cmd>TodoTelescope<cr>'},
+        {'<leader>xt', '<cmd>TodoTrouble<cr>'},
+    },
     opts = {}
 }

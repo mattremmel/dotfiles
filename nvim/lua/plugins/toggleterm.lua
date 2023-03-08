@@ -1,6 +1,11 @@
 return {
     'akinsho/toggleterm.nvim',
-    event = 'VeryLazy', -- TODO: This should load on keybind
+    keys = {
+        {'<C-;>', '<cmd>lua toggleterm_default_toggle()<cr>', desc = 'Toggle terminal'},
+        {'<C-;>', '<cmd>lua toggleterm_default_toggle()<cr>', desc = 'Toggle terminal'},
+        {'<leader>tg', '<cmd>lua toggleterm_lazygit_toggle()<cr>', desc = 'Toggle lazygit'},
+        {'<leader>td', '<cmd>lua toggleterm_lazydocker_toggle()<cr>', desc = 'Toggle lazydocker'},
+    },
     config = function()
         require('toggleterm').setup {
             size = 10,

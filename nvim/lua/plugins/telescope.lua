@@ -5,7 +5,14 @@ return {
         'nvim-telescope/telescope-fzf-native.nvim',
     },
     cmd = { 'Telescope' },
-    -- TODO: Add keybinds here as well
+    keys = {
+        {'<leader>ff', '<cmd>Telescope find_files<cr>', desc = 'Find files'},
+        {'<leader>fF', '<cmd>Telescope find_files hidden=true no-ignore=true<cr>', desc = 'Find files (+hidden)'},
+        {'<leader>fw', '<cmd>Telescope live_grep<cr>', desc = 'Find word'},
+        {'<leader>fW', "<cmd>lua require('telescope.builtin').live_grep{ additional_args = function(args) return vim.list_extend(args, { '--hidden', '--no-ignore' }) end}<cr>', desc = 'Find word (+hidden)"},
+        {'<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Find buffers'},
+        {'<leader>fk', '<cmd>Telescope keymaps<cr>', desc = 'Find keymaps'},
+    },
     opts = {
         defaults = {
             prompt_prefix = " ",

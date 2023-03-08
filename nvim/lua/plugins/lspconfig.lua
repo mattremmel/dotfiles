@@ -9,7 +9,18 @@ return {
         local lspconfig = require('lspconfig')
 
         local on_attach = function(client, buffer)
-            require('keymappings').attach(client, buffer) -- TODO: Make where keymappings are consistent with rest of project
+            local bufopts = { noremap = true, silent = true, buffer = buffer }
+
+            vim.keymap.set("n", "gD", vim.lsp.buf.declaration, bufopts)
+            vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+            vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts) -- TODO: Can this have multiple implementors? Should use telescope if so
+            vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts) -- TODO: Should use telescope to show references
+            vim.keymap.set("n", "gT", vim.lsp.buf.type_definition, bufopts)
+            vim.keymap.set("n", "K", vim.lsp.buf.hover, bufopts)
+            vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, bufopts)
+            vim.keymap.set("n", "<C-.>", vim.lsp.buf.code_action, bufopts)
+            vim.keymap.set("n", "<leader>rr", vim.lsp.buf.rename, bufopts)
+            vim.keymap.set("n", "<leader>rf", function() vim.lsp.buf.format { async = true } end, bufopts)
         end
 
         local lsp_flags = {}
