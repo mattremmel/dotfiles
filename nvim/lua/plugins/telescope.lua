@@ -18,6 +18,7 @@ return {
         {'<leader>fq', '<cmd>Telescope quickfix<cr>', desc = 'Find Items in Quickfix List'},
         {'<leader>fl', '<cmd>Telescope loclist<cr>', desc = 'Find Items in Location List'},
         {'<leader>fj', '<cmd>Telescope jumplist<cr>', desc = 'Find Entries in Jump List'},
+        {'<leader>fg', '<cmd>Telescope git_commits<cr>', desc = 'Find Entries in Jump List'},
     },
     opts = {
         defaults = {
