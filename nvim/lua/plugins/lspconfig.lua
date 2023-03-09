@@ -23,12 +23,12 @@ return {
             vim.keymap.set('n', 'gT', '<cmd>Telescope lsp_type_definitions<cr>', bufopts)
             vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_incoming_calls<cr>', bufopts)
             vim.keymap.set('n', 'go', '<cmd>Telescope lsp_outgoing_calls<cr>', bufopts)
-            vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
-            vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
-            vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, bufopts)
-            vim.keymap.set('n', '<leader>lsd', '<cmd>Telescope lsp_document_symbols<cr>', bufopts)
-            vim.keymap.set('n', '<leader>lsw', '<cmd>Telescope lsp_workspace_symbols<cr>', bufopts)
-            vim.keymap.set('n', '<leader>ld', '<cmd>Telescope diagnostics<cr>', bufopts)
+            vim.keymap.set('n', 'gs', '<cmd>Telescope lsp_document_symbols<cr>', bufopts)
+            vim.keymap.set('n', 'gS', '<cmd>Telescope lsp_workspace_symbols<cr>', bufopts)
+            vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts) -- TODO: Fix where pressing key again closes docs instead of entering them
+            vim.keymap.set('n', '<leader>la', '<cmd>Lspsaga code_action<cr>', bufopts)
+            vim.keymap.set('n', '<leader>lo', '<cmd>Lspsaga outline<cr>', bufopts)
+            vim.keymap.set('n', '<leader>fd', '<cmd>Telescope diagnostics<cr>', bufopts)
             vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, bufopts)
             vim.keymap.set('n', '<leader>rf', function() vim.lsp.buf.format { async = true } end, bufopts)
         end
