@@ -10,9 +10,14 @@ return {
         {'<leader>fF', '<cmd>Telescope find_files hidden=true no-ignore=true<cr>', desc = 'Find Files (+hidden)'},
         {'<leader>fw', '<cmd>Telescope live_grep<cr>', desc = 'Find Word'},
         {'<leader>fW', "<cmd>lua require('telescope.builtin').live_grep{ additional_args = function(args) return vim.list_extend(args, { '--hidden', '--no-ignore' }) end}<cr>", desc = 'Find Word (+hidden)'},
-        {'<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Find Buffers'},
+        {'<leader>fB', '<cmd>Telescope buffers<cr>', desc = 'Find Open Buffers'},
+        {'<leader>fb', '<cmd>Telescope current_buffer_fuzzy_find<cr>', desc = 'Find Text in Current Buffer'},
         {'<leader>fk', '<cmd>Telescope keymaps<cr>', desc = 'Find Keymaps'},
-        {'<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Find Help Tags'}
+        {'<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Find Help Tags'},
+        {'<leader>fc', '<cmd>Telescope commands<cr>', desc = 'Find Plugin/User Commands'},
+        {'<leader>fq', '<cmd>Telescope quickfix<cr>', desc = 'Find Items in Quickfix List'},
+        {'<leader>fl', '<cmd>Telescope loclist<cr>', desc = 'Find Items in Location List'},
+        {'<leader>fj', '<cmd>Telescope jumplist<cr>', desc = 'Find Entries in Jump List'},
     },
     opts = {
         defaults = {
