@@ -3,6 +3,7 @@ return {
     version = false,
     build = ':TSUpdate',
     event = { 'BufReadPre', 'BufNewFile' },
+    cmd = {'TSUpdate', 'TSModuleInfo'},
     opts = {
        ensure_installed = {
            "help",
