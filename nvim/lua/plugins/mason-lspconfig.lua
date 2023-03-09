@@ -5,5 +5,8 @@ return {
        'neovim/nvim-lspconfig'
    },
    cmd = {'LspInstall'},
-   opts = {}
+   opts = {
+       automatic_installation = true,
+       ensure_installed = require('lsp.servers')
+   }
 }
