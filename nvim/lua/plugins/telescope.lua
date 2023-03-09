@@ -12,6 +12,7 @@ return {
         {'<leader>fW', "<cmd>lua require('telescope.builtin').live_grep{ additional_args = function(args) return vim.list_extend(args, { '--hidden', '--no-ignore' }) end}<cr>", desc = 'Find Word (+hidden)'},
         {'<leader>fb', '<cmd>Telescope buffers<cr>', desc = 'Find Buffers'},
         {'<leader>fk', '<cmd>Telescope keymaps<cr>', desc = 'Find Keymaps'},
+        {'<leader>fh', '<cmd>Telescope help_tags<cr>', desc = 'Find Help Tags'}
     },
     opts = {
         defaults = {
