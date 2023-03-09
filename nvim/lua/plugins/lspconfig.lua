@@ -15,14 +15,20 @@ return {
         local on_attach = function(client, bufnr)
             local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-            vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
-            vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts) -- TODO: Can this have multiple implementors? Should use telescope if so
-            vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts) -- TODO: Should use telescope to show references
-            vim.keymap.set('n', 'gT', vim.lsp.buf.type_definition, bufopts)
+            -- TODO: Set description for keymaps
+            vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, bufopts)
+            vim.keymap.set('n', 'gD', '<cmd>Telescope lsp_definitions<cr>', bufopts)
+            vim.keymap.set('n', 'gI', '<cmd>Telescope lsp_implmentations<cr>', bufopts)
+            vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', bufopts)
+            vim.keymap.set('n', 'gT', '<cmd>Telescope lsp_type_definitions<cr>', bufopts)
+            vim.keymap.set('n', 'gi', '<cmd>Telescope lsp_incoming_calls<cr>', bufopts)
+            vim.keymap.set('n', 'go', '<cmd>Telescope lsp_outgoing_calls<cr>', bufopts)
             vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
             vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, bufopts)
             vim.keymap.set('n', '<leader>la', vim.lsp.buf.code_action, bufopts)
+            vim.keymap.set('n', '<leader>lsd', '<cmd>Telescope lsp_document_symbols<cr>', bufopts)
+            vim.keymap.set('n', '<leader>lsw', '<cmd>Telescope lsp_workspace_symbols<cr>', bufopts)
+            vim.keymap.set('n', '<leader>ld', '<cmd>Telescope diagnostics<cr>', bufopts)
             vim.keymap.set('n', '<leader>rr', vim.lsp.buf.rename, bufopts)
             vim.keymap.set('n', '<leader>rf', function() vim.lsp.buf.format { async = true } end, bufopts)
         end
