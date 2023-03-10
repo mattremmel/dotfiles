@@ -22,3 +22,7 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 
 -- Search Highlights
 vim.keymap.set("n", "<leader>h", "<cmd>noh<cr>", {noremap = true, silent = true, desc = 'Clear Search Highlights'})
+
+-- Inserting Characters
+vim.keymap.set("n", "<leader>;", "A;<esc>", {noremap = true, silent = true, desc = 'Clear Search Highlights'})
+vim.keymap.set("n", "<leader>,", "A,<esc>", {noremap = true, silent = true, desc = 'Clear Search Highlights'})
