@@ -8,6 +8,7 @@ return {
         'hrsh7th/cmp-nvim-lua',
         'saadparwaiz1/cmp_luasnip',
         'onsails/lspkind.nvim',
+        'rafamadriz/friendly-snippets',
     },
     config = function()
         local cmp = require('cmp')

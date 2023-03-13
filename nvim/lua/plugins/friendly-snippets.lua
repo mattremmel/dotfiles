@@ -1,5 +1,5 @@
 return {
     'rafamadriz/friendly-snippets',
-    lazy = false,
+    lazy = true,
     config = function() end
 }
