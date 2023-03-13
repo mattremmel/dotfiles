@@ -24,5 +24,5 @@ vim.keymap.set("n", "<C-k>", "<C-w>k")
 vim.keymap.set("n", "<leader>h", "<cmd>noh<cr>", {noremap = true, silent = true, desc = 'Clear Search Highlights'})
 
 -- Inserting Characters
-vim.keymap.set("n", "<leader>;", "A;<esc>", {noremap = true, silent = true, desc = 'Clear Search Highlights'})
-vim.keymap.set("n", "<leader>,", "A,<esc>", {noremap = true, silent = true, desc = 'Clear Search Highlights'})
+vim.keymap.set("n", "<leader>;", "A;<esc>", {noremap = true, silent = true, desc = 'Insert Semicolon at Line End'})
+vim.keymap.set("n", "<leader>,", "A,<esc>", {noremap = true, silent = true, desc = 'Insert Comma at Line End'})
