@@ -16,8 +16,8 @@ return {
             local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
             -- TODO: Set description for keymaps
-            vim.keymap.set('n', 'gd', vim.lsp.buf.declaration, bufopts)
-            vim.keymap.set('n', 'gD', '<cmd>Telescope lsp_definitions<cr>', bufopts)
+            vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+            vim.keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<cr>', bufopts)
             vim.keymap.set('n', 'gI', '<cmd>Telescope lsp_implmentations<cr>', bufopts)
             vim.keymap.set('n', 'gr', '<cmd>Telescope lsp_references<cr>', bufopts)
             vim.keymap.set('n', 'gT', '<cmd>Telescope lsp_type_definitions<cr>', bufopts)
