@@ -1,8 +1,8 @@
 -- navigation
-vim.keymap.set("n", "j", "gj")
-vim.keymap.set("n", "k", "gk")
-vim.keymap.set("v", "j", "gj")
-vim.keymap.set("v", "k", "gk")
+vim.keymap.set("n", "j", "v:count ? 'j' : 'gj'", {noremap = true, expr = true})
+vim.keymap.set("n", "k", "v:count ? 'k' : 'gk'", {noremap = true, expr = true})
+vim.keymap.set("v", "j", "v:count ? 'j' : 'gj'", {noremap = true, expr = true})
+vim.keymap.set("v", "k", "v:count ? 'k' : 'gk'", {noremap = true, expr = true})
 
 -- indenting
 vim.keymap.set("v", ">", ">gv") -- don't lose selection when indenting
