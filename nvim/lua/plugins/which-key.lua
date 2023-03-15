@@ -18,6 +18,7 @@ return {
         which_key.setup(opts)
         which_key.register({
             f = { name = 'Find' },
+            g = { name = 'Git' },
             l = { name = 'LSP' },
             q = { name = 'Quit' },
             r = { name = 'Refactor' },
