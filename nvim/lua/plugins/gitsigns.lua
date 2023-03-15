@@ -20,6 +20,7 @@ return {
         end,
         expr = true,
         desc = 'Previous Hunk'},
+        {'ih', ':<C-U>Gitsigns select_hunk<cr>', mode = {'o', 'x'}, desc = 'Select Hunk'}
     },
     opts = {}
 }
