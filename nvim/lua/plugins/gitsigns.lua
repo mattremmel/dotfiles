@@ -4,7 +4,8 @@ return {
     cmd = { 'Gitsigns' },
     keys = {
         {'<leader>gb', '<cmd>Gitsigns toggle_current_line_blame<cr>', desc = 'Toggle Blame'},
-        {'<leader>gd', '<cmd>Gitsigns toggle_deleted<cr>', desc = 'Toggle Deleted'},
+        {'<leader>gd', '<cmd>Gitsigns diffthis<cr>', desc = 'Open Diff'},
+        {'<leader>gD', '<cmd>Gitsigns toggle_deleted<cr>', desc = 'Toggle Deleted'},
         {'<leader>gn', function()
             if vim.wo.diff then return ']c' end
             vim.schedule(function() require('gitsigns').next_hunk() end)
