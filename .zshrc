@@ -44,24 +44,6 @@ HISTFILE=$HOME/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000
 LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
-GH_PACKAGES_TOKEN=$(cat /home/matthew/.pat)
-
-# Tesouro macbook variables
-if [[ `uname` == "Darwin" ]]; then
-    # Fixes an issue that caused tab-completion to break prompt
-    LANG=en_US.UTF-8 
-
-    # Dotnet
-    export PATH="$PATH:/Users/matt/Library/Application Support/JetBrains/Toolbox/scripts"
-
-    # Node Version Manager
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
-    [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-
-    # Brew
-    eval "$(/opt/homebrew/bin/brew shellenv)"
-fi
 
 ### Load colors
 ###############
@@ -322,22 +304,13 @@ zstyle '*' single-ignored show
 
 ### Source plugins
 ##################
-# Tesouro macbook variables
-if [[ `uname` == "Darwin" ]]; then
-	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-	source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
 
-    # Google Cloud config
-    # The next line updates PATH for the Google Cloud SDK.
-    if [ -f '/Users/matt/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/matt/google-cloud-sdk/path.zsh.inc'; fi
-
-    # The next line enables shell command completion for gcloud.
-    if [ -f '/Users/matt/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/matt/google-cloud-sdk/completion.zsh.inc'; fi
-# Regular plugin location
-else
-	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-	source /usr/share/fzf/key-bindings.zsh
-	source /usr/share/fzf/completion.zsh
+# Source extended computer/environment specific configuration
+if [ -f "$HOME/.zshrc_ext" ]; then 
+	source $HOME/.zshrc_ext 
 fi
 
 # Start Starship
