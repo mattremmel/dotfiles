@@ -3,3 +3,4 @@ return {
      cmd = {'Mason', 'MasonInstall', 'MasonUninstall', 'MasonLog', 'MasonUninstallAll'},
      opts = {}
 }
+

@@ -4,5 +4,10 @@ return {
         'nvim-tree/nvim-web-devicons'
     },
     event = 'VeryLazy',
-    opts = {}
+    opts = {
+        options = {
+            component_separators = '|',
+            section_separators = { left = '', right = '' },
+        }
+    }
 }

@@ -58,7 +58,7 @@ vim.g.autopairs_enabled = true -- requires plugin
 vim.opt.hidden = true
 
 -- performance
-vim.opt.lazyredraw = true
+vim.opt.lazyredraw = false
 
 -- session
 vim.opt.autoread = true
@@ -74,14 +74,6 @@ vim.opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpo
 vim.g.diagnostics_enabled = true
 vim.g.status_diagnostics_enabled = true
 vim.opt.visualbell = false
-
--- neovide gui
-vim.opt.guifont = { "JetBrainsMono Nerd Font", ":h8" }
-vim.g.neovide_cursor_antialiasing = true
-vim.g.neovide_cursor_animation_length = 0.08
-vim.g.neovide_no_idle = true
-vim.g.neovide_hide_mouse_when_typing = true
-vim.g.neovide_confirm_quit = true
 
 -- disable default plugins
 vim.g.zipPlugin = false -- disable zip

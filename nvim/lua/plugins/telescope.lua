@@ -19,6 +19,7 @@ return {
         {'<leader>fl', '<cmd>Telescope loclist<cr>', desc = 'Find Items in Location List'},
         {'<leader>fj', '<cmd>Telescope jumplist<cr>', desc = 'Find Entries in Jump List'},
         {'<leader>fg', '<cmd>Telescope git_commits<cr>', desc = 'Find Git Commits'},
+        {'<leader>fn', "<cmd>lua require('telescope').extensions.notify.notify()<cr>", desc = 'Find notifications'},
     },
     opts = {
         defaults = {

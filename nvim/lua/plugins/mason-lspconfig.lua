@@ -10,3 +10,4 @@ return {
        ensure_installed = require('lsp.servers')
    }
 }
+

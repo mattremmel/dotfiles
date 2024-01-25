@@ -11,14 +11,14 @@ vim.keymap.set("v", "=", "=gv") -- don't lose selection when indenting
 
 -- buffers
 vim.keymap.set("n", "<leader>w", "<cmd>w!<cr>", {noremap = true, silent = true, desc = 'Write Buffer'})
-vim.keymap.set("n", "<C-s>", "<cmd>w!<cr>", {noremap = true, silent = true, desc = 'Write Buffer'})
 vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", {noremap = true, silent = true, desc = 'Quit Neovim'})
 
 -- windows
-vim.keymap.set("n", "<C-l>", "<C-w>l")
-vim.keymap.set("n", "<C-h>", "<C-w>h")
-vim.keymap.set("n", "<C-j>", "<C-w>j")
-vim.keymap.set("n", "<C-k>", "<C-w>k")
+-- NOTE: Currently be handled by tmux navigation plugin
+-- vim.keymap.set("n", "<C-l>", "<C-w>l")
+-- vim.keymap.set("n", "<C-h>", "<C-w>h")
+-- vim.keymap.set("n", "<C-j>", "<C-w>j")
+-- vim.keymap.set("n", "<C-k>", "<C-w>k")
 
 -- Search Highlights
 vim.keymap.set("n", "<leader>h", "<cmd>noh<cr>", {noremap = true, silent = true, desc = 'Clear Search Highlights'})

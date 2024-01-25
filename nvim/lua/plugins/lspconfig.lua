@@ -3,12 +3,15 @@ return {
     dependencies = {
         'mason.nvim',
         'williamboman/mason-lspconfig.nvim',
+        'hrsh7th/cmp-nvim-lua'
     },
     event = { 'BufReadPre', 'BufNewFile' },
     config = function()
         -- global
-        vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
-        vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
+
+        -- NOTE: These are currently handled by noice
+        -- vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = 'rounded' })
+        -- vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = 'rounded' })
 
         local lspconfig = require('lspconfig')
 
@@ -57,3 +60,4 @@ return {
         end
     end
 }
+
