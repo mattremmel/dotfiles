@@ -23,4 +23,4 @@ require('keymappings')
 require('diagnostics')
 require('lazy').setup('plugins')
 
-vim.cmd('colorscheme nightfox')
+vim.cmd('colorscheme nordfox')
