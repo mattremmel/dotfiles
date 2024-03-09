@@ -12,12 +12,20 @@ sudo systemctl enable --now NetworkManager
 - lazygit
 
 - yay
-  - makepkg -si?
+  - git clone https://aur.archlinux.org/yay.git
+  - makepkg -si
+
+## Font
+- ttf-jetbrains-mono-nerd
 
 ## Shell
 - alacritty
 - zsh
   - chsh -s /usr/bin/zsh
+  - sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+  - git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+  - git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+
 - starship
 
 ## Neovim
@@ -52,6 +60,7 @@ sudo systemctl enable --now NetworkManager
 - rustup
   - rustup install stable nightly
 - mold
+  - TODO: Update cargo config
 
 ## Dotnet
 - dotnet-sdk
@@ -61,6 +70,9 @@ sudo systemctl enable --now NetworkManager
 ## Node
 - nodejs
 - npm
+
+## Python
+- TODO
 
 ## Kubernetes
 - kubectl
@@ -77,6 +89,7 @@ sudo systemctl enable --now NetworkManager
 ln -s /real/path /sym/path
 
 ## Jetbrains
+- jre-openjdk
 - clion
 - rider
 - pycharm-professional
@@ -84,3 +97,9 @@ ln -s /real/path /sym/path
 - intellij-idea-ultimate-edition
 - datagrip
 - webstorm
+
+# Browser
+- brave-bin
+
+# VSCode
+- visual-studio-code-bin

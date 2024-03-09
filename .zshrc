@@ -11,6 +11,23 @@ HISTFILE=$HOME/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000
 
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
+
+source $ZSH/oh-my-zsh.sh
+
+# direnv
+eval "$(direnv hook zsh)"
+
+# starship
+eval "$(starship init zsh)"
+
+
 ### Set alias
 #############
 alias cls="clear"
@@ -53,18 +70,3 @@ alias lt='exa --tree --level=2'                                         # tree
 alias grep='rg'
 alias lg='lazygit'
 alias ld='lazydocker'
-
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-# Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-syntax-highlighting zsh-autosuggestions)
-
-source $ZSH/oh-my-zsh.sh
-
-# direnv
-eval "$(direnv hook zsh)"
-
-# starship
-eval "$(starship init zsh)"
