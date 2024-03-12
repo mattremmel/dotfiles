@@ -10,6 +10,17 @@ sudo systemctl enable --now NetworkManager
   - git config --global user.name "Matthew Remmel"
   - git config --global user.email "matt.remmel@gmail.com"
 - lazygit
+- ~/.gitconfig
+  - ```
+    [includeIf "gitdir:~/workspace/work"]
+        path = ~/workspace/work/.gitconfig
+    ```
+- ~/workspace/work/.gitconfig
+  - ```
+    [user]
+        name = "Name Override"
+        email = "Email Override"
+    ```
 
 - yay
   - git clone https://aur.archlinux.org/yay.git
@@ -49,6 +60,15 @@ sudo systemctl enable --now NetworkManager
 - cmake
 - just
 - rsync
+- unzip
+- neofetch
+
+## Bluetooth
+- bluez
+- bluez-utils
+- blueman
+- Check that bluetooth is being killed `sudo rfkill list`
+- enable `sudo systemctl enable --now bluetooth.service`
 
 ## Docker
 - docker
@@ -101,5 +121,14 @@ ln -s /real/path /sym/path
 # Browser
 - brave-bin
 
+# Slack
+- slack-desktop
+
+# Postman
+- postman-bin
+
 # VSCode
 - visual-studio-code-bin
+
+## General Software
+- signal-desktop
