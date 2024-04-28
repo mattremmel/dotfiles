@@ -62,6 +62,13 @@ sudo systemctl enable --now NetworkManager
 - rsync
 - unzip
 - neofetch
+- less
+- nfs-utils
+- typst
+- helix
+- man
+- spectacle (KDE)
+- dust
 
 ## Bluetooth
 - bluez
@@ -75,6 +82,7 @@ sudo systemctl enable --now NetworkManager
 - docker-compose
   - sudo systemctl enable --now Docker?
   - sudo usermod -aG docker $USER && newgrp docker
+- lazydocker-bin
 
 ## Rust
 - rustup
@@ -132,3 +140,23 @@ ln -s /real/path /sym/path
 
 ## General Software
 - signal-desktop
+- zotero-bin
+- apple-music-desktop
+- obs-studio
+- gimp
+- ardour
+- blender
+- godot
+- audacity
+- inkscape
+- zoom
+- davinci-resolve
+
+## Chordpro
+sudo cpan install chordpro
+
+## Cargo
+cargo-dist
+
+## Wayland Notes
+Can add environment variable for Electron, and can pass additional flags to chromium based browsers to try to fix laggyness
