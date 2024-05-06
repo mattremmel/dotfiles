@@ -1,3 +1,5 @@
+require "nvchad.options"
+
 -- tui
 vim.opt.number = true
 vim.opt.relativenumber = true
@@ -5,14 +7,14 @@ vim.opt.numberwidth = 2
 vim.opt.termguicolors = true
 vim.opt.showmode = true
 vim.opt.showcmd = true
-vim.opt.showtabline = 2
 vim.opt.mouse = "a"
 vim.opt.cursorline = true
 vim.opt.background = "dark"
 vim.opt.title = true
 vim.opt.signcolumn = "yes"
 vim.g.highlighturl_enabled = true -- requires plugin?
-vim.g.icons_enabled = true -- requires NerdFont
+vim.g.icons_enabled = true        -- requires NerdFont
+
 
 -- rendering
 vim.opt.syntax = "off" -- use tree sitter instead
@@ -49,10 +51,10 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
 -- auto completion / formatting / linting
-vim.opt.spell = false -- disabled for too many false positives
+vim.opt.spell = false           -- disabled for too many false positives
 vim.g.autoformat_enabled = true -- requires plugin
-vim.g.cmp_enabled = true -- requires plugin
-vim.g.autopairs_enabled = true -- requires plugin
+vim.g.cmp_enabled = true        -- requires plugin
+vim.g.autopairs_enabled = true  -- requires plugin
 
 -- terminal
 vim.opt.hidden = true
@@ -76,21 +78,21 @@ vim.g.status_diagnostics_enabled = true
 vim.opt.visualbell = false
 
 -- disable default plugins
-vim.g.zipPlugin = false -- disable zip
-vim.g.load_black = false -- disable black
-vim.g.loaded_2html_plugin = true -- disable 2html
-vim.g.loaded_getscript = true -- disable getscript
-vim.g.loaded_getscriptPlugin = true -- disable getscript
-vim.g.loaded_gzip = true -- disable gzip
-vim.g.loaded_logipat = true -- disable logipat
-vim.g.loaded_matchit = true -- disable matchit
+vim.g.zipPlugin = false               -- disable zip
+vim.g.load_black = false              -- disable black
+vim.g.loaded_2html_plugin = true      -- disable 2html
+vim.g.loaded_getscript = true         -- disable getscript
+vim.g.loaded_getscriptPlugin = true   -- disable getscript
+vim.g.loaded_gzip = true              -- disable gzip
+vim.g.loaded_logipat = true           -- disable logipat
+vim.g.loaded_matchit = true           -- disable matchit
 vim.g.loaded_netrwFileHandlers = true -- disable netrw
-vim.g.loaded_netrwPlugin = true -- disable netrw
-vim.g.loaded_netrwSettngs = true -- disable netrw
-vim.g.loaded_remote_plugins = true -- disable remote plugins
-vim.g.loaded_tar = true -- disable tar
-vim.g.loaded_tarPlugin = true -- disable tar
-vim.g.loaded_zip = true -- disable zip
-vim.g.loaded_zipPlugin = true -- disable zip
-vim.g.loaded_vimball = true -- disable vimball
-vim.g.loaded_vimballPlugin = true -- disable vimball
+vim.g.loaded_netrwPlugin = true       -- disable netrw
+vim.g.loaded_netrwSettngs = true      -- disable netrw
+vim.g.loaded_remote_plugins = true    -- disable remote plugins
+vim.g.loaded_tar = true               -- disable tar
+vim.g.loaded_tarPlugin = true         -- disable tar
+vim.g.loaded_zip = true               -- disable zip
+vim.g.loaded_zipPlugin = true         -- disable zip
+vim.g.loaded_vimball = true           -- disable vimball
+vim.g.loaded_vimballPlugin = true     -- disable vimball
