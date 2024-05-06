@@ -10,6 +10,9 @@ PATH="/usr/local/bin:/usr/local/sbin/:$PATH"
 HISTFILE=$HOME/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000
+EDITOR=nvim
+
+ELECTRON_OZONE_PLATFORM_HINT=auto
 
 
 # Which plugins would you like to load?
