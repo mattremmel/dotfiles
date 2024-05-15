@@ -297,16 +297,14 @@ require("lazy").setup({
                 function()
                     local widgets = require('dap.ui.widgets')
                     widgets.centered_float(widgets.frames)
-                end,
-		    desc = 'Show Frames'
-                },
-                { '<leader>ds',
-                    function()
-                        local widgets = require('dap.ui.widgets')
-                        widgets.centered_float(widgets.scopes)
-                    end,
-		    desc = 'Show Scopes'
-	        },
+                end, desc = 'Show Frames'
+            },
+            { '<leader>ds',
+                function()
+                    local widgets = require('dap.ui.widgets')
+                    widgets.centered_float(widgets.scopes)
+                end, desc = 'Show Scopes'
+            },
         },
         config = function()
             vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
