@@ -215,6 +215,12 @@ require("lazy").setup({
     -- colorschemes
     {
         {
+            "catppuccin/nvim",
+            name = "catppuccin",
+            lazy = true,
+        },
+
+        {
             "EdenEast/nightfox.nvim",
             lazy = true,
             opts = {
@@ -267,6 +273,61 @@ require("lazy").setup({
         },
     },
 
+    -- debug adapter
+    {
+        "mfussenegger/nvim-dap",
+        dependencies = {
+            "rcarriga/nvim-dap-ui",
+            "nvim-neotest/nvim-nio",
+        },
+
+        -- stylua: ignore
+        keys = {
+            { '<leader>dt', function() require('dap').toggle_breakpoint() end, desc = 'Toggle Breakpoint' },
+            { '<leader>db', function() require('dap').set_breakpoint() end, desc = 'Set Breakpoint' },
+            { '<leader>dr', function() require('dap').repl.open() end, desc = 'Open REPL' },
+            { '<leader>dl', function() require('dap').run_last() end, desc = 'Run Last' },
+            { '<leader>dn', function() require('dap').continue() end, desc = 'Continue' },
+            { '<leader>do', function() require('dap').step_over() end, desc = 'Step Over' },
+            { '<leader>di', function() require('dap').step_into() end, desc = 'Step Into' },
+            { '<leader>dO', function() require('dap').step_out() end, desc = 'Step Out' },
+            { '<leader>dh', mode = { 'n', 'v' }, function() require('dap.ui.widgets').hover() end, desc = 'Hover UI' },
+            { '<leader>dp', mode = { 'n', 'v' }, function() require('dap.ui.widgets').preview() end, desc = 'Preview' },
+            { '<leader>df',
+                function()
+                    local widgets = require('dap.ui.widgets')
+                    widgets.centered_float(widgets.frames)
+                end,
+		    desc = 'Show Frames'
+                },
+                { '<leader>ds',
+                    function()
+                        local widgets = require('dap.ui.widgets')
+                        widgets.centered_float(widgets.scopes)
+                    end,
+		    desc = 'Show Scopes'
+	        },
+        },
+        config = function()
+            vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+
+            local dap, dapui = require("dap"), require("dapui")
+            dap.listeners.before.attach.dapui_config = function()
+                dapui.open()
+            end
+            dap.listeners.before.launch.dapui_config = function()
+                dapui.open()
+            end
+            dap.listeners.before.event_terminated.dapui_config = function()
+                dapui.close()
+            end
+            dap.listeners.before.event_exited.dapui_config = function()
+                dapui.close()
+            end
+        end,
+    },
+
+    -- git signs
     {
         "lewis6991/gitsigns.nvim",
         event = { "BufReadPre", "BufNewFile" },
@@ -349,6 +410,7 @@ require("lazy").setup({
                 "prettier",
                 "stylua",
             },
+            automatic_installation = true,
         },
         config = function(_, opts)
             require("mason").setup(opts)
@@ -751,8 +813,8 @@ require("lazy").setup({
             indent = { enable = false },
         },
         config = function(_, opts)
-            require('nvim-treesitter.configs').setup(opts)
-        end
+            require("nvim-treesitter.configs").setup(opts)
+        end,
     },
 
     -- trouble
@@ -880,7 +942,7 @@ vim.opt.termguicolors = true
 vim.opt.showmode = true
 vim.opt.showcmd = true
 vim.opt.mouse = "a"
-vim.opt.cursorline = true
+vim.opt.cursorline = false
 vim.opt.background = "dark"
 vim.opt.title = true
 vim.opt.signcolumn = "yes"
