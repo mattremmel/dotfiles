@@ -69,6 +69,8 @@ sudo systemctl enable --now NetworkManager
 - man
 - spectacle (KDE)
 - dust
+- zoxide
+- fzf
 
 ## Bluetooth
 - bluez
@@ -151,6 +153,7 @@ ln -s /real/path /sym/path
 - inkscape
 - zoom
 - davinci-resolve
+- syncthing-gtk
 
 ## Chordpro
 sudo cpan install chordpro

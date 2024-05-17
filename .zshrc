@@ -26,14 +26,14 @@ source $ZSH/oh-my-zsh.sh
 
 # direnv
 eval "$(direnv hook zsh)"
-
-# starship
 eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
 
 
 ### Set alias
 #############
 alias cls="clear"
+alias cd="z"
 alias ..="cd .."
 alias cd..="cd .."
 #alias ll="ls -lisa --color=auto"

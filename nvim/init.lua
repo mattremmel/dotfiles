@@ -291,7 +291,7 @@ require("lazy").setup({
             { '<leader>do', function() require('dap').step_over() end, desc = 'Step Over' },
             { '<leader>di', function() require('dap').step_into() end, desc = 'Step Into' },
             { '<leader>dO', function() require('dap').step_out() end, desc = 'Step Out' },
-            { '<leader>dh', mode = { 'n', 'v' }, function() require('dap.ui.widgets').hover() end, desc = 'Hover UI' },
+            { '<leader>dh', mode = { 'n', 'v' }, function() require('dap.ui.widgets').hover() end, desc = 'Inspect (Hover)' },
             { '<leader>dp', mode = { 'n', 'v' }, function() require('dap.ui.widgets').preview() end, desc = 'Preview' },
             { '<leader>df',
                 function()
@@ -308,8 +308,11 @@ require("lazy").setup({
         },
         config = function()
             vim.fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "", linehl = "", numhl = "" })
+            vim.fn.sign_define("DapBreakpointCondition", { text = "🔵", texthl = "", linehl = "", numhl = "" })
 
             local dap, dapui = require("dap"), require("dapui")
+            dapui.setup()
+
             dap.listeners.before.attach.dapui_config = function()
                 dapui.open()
             end
@@ -322,6 +325,80 @@ require("lazy").setup({
             dap.listeners.before.event_exited.dapui_config = function()
                 dapui.close()
             end
+
+            local mason_registry = require("mason-registry")
+
+            -- codelldb
+            local codelldb_path = mason_registry.get_package("codelldb"):get_install_path()
+            local codelldb_cmd = codelldb_path .. "/extension/adapter/codelldb"
+
+            dap.adapters.codelldb = {
+                type = "server",
+                port = "${port}",
+                executable = {
+                    command = codelldb_cmd,
+                    args = { "--port", "${port}" },
+                },
+            }
+
+            -- rust
+            -- dap.configurations.rust = {
+            --     {
+            --         name = "Launch",
+            --         type = "codelldb",
+            --         request = "launch",
+            --         program = function()
+            --             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+            --         end,
+            --         cwd = "${workspaceFolder}",
+            --         stopOnEntry = false,
+            --         args = {},
+            --         preLaunchTask = function()
+            --             vim.fn.system("cargo build")
+            --         end,
+            --     },
+            --     {
+            --         name = "Test",
+            --         type = "codelldb",
+            --         request = "launch",
+            --         program = function()
+            --             local cwd = vim.fn.getcwd()
+            --             local test_executables = vim.fn.glob(cwd .. "/target/debug/deps/*", 0, 1)
+            --
+            --             -- Filter out files with extensions and create a unique set of crate names
+            --             local unique_crates = {}
+            --             local filtered_test_executables = {}
+            --             for _, file in ipairs(test_executables) do
+            --                 local crate_name = file:match("^.+/(.-)%-[%w%-]+$")
+            --                 if crate_name and not unique_crates[crate_name] and not file:match("^.+%.%w+$") then
+            --                     unique_crates[crate_name] = true
+            --                     table.insert(filtered_test_executables, file)
+            --                 end
+            --             end
+            --
+            --             table.sort(filtered_test_executables, function(a, b)
+            --                 return vim.fn.getftime(a) > vim.fn.getftime(b)
+            --             end)
+            --
+            --             local choices = vim.tbl_map(function(item)
+            --                 return item:match("^.+/(.+)$")
+            --             end, filtered_test_executables)
+            --             local choice = vim.fn.inputlist(choices)
+            --             return filtered_test_executables[choice]
+            --         end,
+            --         cwd = "${workspaceFolder}",
+            --         stopOnEntry = false,
+            --         args = { "--nocapture" },
+            --         env = function()
+            --             return {
+            --                 ["RUST_BACKTRACE"] = "1",
+            --             }
+            --         end,
+            --         preLaunchTask = function()
+            --             vim.fn.system("cargo test --no-run")
+            --         end,
+            --     },
+            -- }
         end,
     },
 
@@ -402,11 +479,15 @@ require("lazy").setup({
                 "css-lsp",
                 "html-lsp",
                 "lua-language-server",
+                "omnisharp",
                 "rust-analyzer",
 
                 -- Formatters
                 "prettier",
                 "stylua",
+
+                -- Debuggers
+                "codelldb",
             },
             automatic_installation = true,
         },
@@ -522,10 +603,10 @@ require("lazy").setup({
             local capabilities = vim.lsp.protocol.make_client_capabilities()
 
             local lspconfig = require("lspconfig")
-            local servers = { "html", "cssls" }
+            local servers_with_default_config = { "cssls", "html" }
 
             -- lsps with default config
-            for _, lsp in ipairs(servers) do
+            for _, lsp in ipairs(servers_with_default_config) do
                 lspconfig[lsp].setup({
                     on_attach = on_attach,
                     on_init = on_init,
@@ -554,6 +635,13 @@ require("lazy").setup({
                         },
                     },
                 },
+            })
+
+            lspconfig.omnisharp.setup({
+                on_attach = on_attach,
+                on_init = on_init,
+                capabilities = capabilities,
+                cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
             })
 
             lspconfig.rust_analyzer.setup({
