@@ -71,6 +71,9 @@ sudo systemctl enable --now NetworkManager
 - dust
 - zoxide
 - fzf
+- pacman-contrib
+- reflector
+    - then set up automation via service
 
 ## Bluetooth
 - bluez
@@ -91,6 +94,7 @@ sudo systemctl enable --now NetworkManager
   - rustup install stable nightly
 - mold
   - TODO: Update cargo config
+- cargo-nextest
 
 ## Dotnet
 - dotnet-sdk
