@@ -73,3 +73,4 @@ alias lt='exa --tree --level=2'                                         # tree
 alias grep='rg'
 alias lg='lazygit'
 alias ld='lazydocker'
+alias ssh='TERM=xterm-256color ssh'
