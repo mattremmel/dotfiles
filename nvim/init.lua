@@ -14,6 +14,10 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- add mason registry to path
+local is_windows = vim.fn.has("win32") ~= 0
+vim.env.PATH = vim.fn.stdpath "data" .. "/mason/bin" .. (is_windows and ";" or ":") .. vim.env.PATH
+
 -- configuration modules
 require('options')
 require('keymappings')
