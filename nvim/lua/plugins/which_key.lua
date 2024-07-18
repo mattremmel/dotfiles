@@ -1,29 +1,22 @@
 return {
     "folke/which-key.nvim",
     lazy = false,
-    opts = {
-        window = {
-            border = "single",
-            position = "bottom",
-            margin = { 1, 0, 1, 0 },
-            padding = { 2, 2, 2, 2 },
-            winblend = 0,
-        },
-    },
     config = function(_, opts)
         vim.o.timeout = true
         vim.o.timeoutlen = 300
 
         local which_key = require("which-key")
         which_key.setup(opts)
-        which_key.register({
-            f = { name = "Find" },
-            g = { name = "Git" },
-            l = { name = "LSP" },
-            q = { name = "Quit" },
-            r = { name = "Refactor" },
-            t = { name = "Terminal" },
-            x = { name = "Trouble" },
-        }, { prefix = "<leader>" })
+        which_key.add({
+            { "<leader>d", group = "Debugging" },
+            { "<leader>f", group = "Find" },
+            { "<leader>g", group = "Git" },
+            { "<leader>l", group = "LSP" },
+            { "<leader>q", group = "Quit" },
+            { "<leader>r", group = "Refactor" },
+            { "<leader>t", group = "Terminal" },
+            { "<leader>v", group = "Validation" },
+            { "<leader>x", group = "Trouble" },
+       })
     end,
 }

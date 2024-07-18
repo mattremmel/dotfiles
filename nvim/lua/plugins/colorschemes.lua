@@ -1,11 +1,5 @@
 return {
     {
-        "catppuccin/nvim",
-        name = "catppuccin",
-        lazy = true,
-    },
-
-    {
         "EdenEast/nightfox.nvim",
         lazy = true,
         opts = {
@@ -16,10 +10,5 @@ return {
                 },
             },
         },
-    },
-
-    {
-        "Mofiqul/vscode.nvim",
-        lazy = true,
     },
 }
