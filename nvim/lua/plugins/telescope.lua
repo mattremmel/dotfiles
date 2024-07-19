@@ -66,12 +66,23 @@ return {
                         ["<C-k>"] = function(...)
                             return require("telescope.actions").move_selection_previous(...)
                         end,
-                        -- TODO: Open with trouble, and open selected with trouble bindings: https://github.com/LazyVim/LazyVim/blob/1f7be0bbad3012046a53edb649b3cdc085e7ed54/lua/lazyvim/plugins/editor.lua#L149
+                        ["<C-t>"] = function(bufnr)
+                            return require('trouble.sources.telescope').open(bufnr)
+                        end,
+                        ["<C-T>"] = function(bufnr)
+                            return require('trouble.sources.telescope').add(bufnr)
+                        end
                     },
                     n = {
                         ["q"] = function(...)
                             require("telescope.actions").close(...)
                         end,
+                        ["<C-t>"] = function(bufnr)
+                            return require('trouble.sources.telescope').open(bufnr)
+                        end,
+                        ["<C-T>"] = function(bufnr)
+                            return require('trouble.sources.telescope').add(bufnr)
+                        end
                     },
                 },
             },

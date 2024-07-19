@@ -9,8 +9,8 @@ return {
         { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find TODO Comments" },
         {
             "<leader>xt",
-            "<cmd>TodoTrouble<cr>",
-            desc = "Toggle Trouble for TODO Comments",
+            "<cmd>Trouble todo toggle focus=true<cr>",
+            desc = "TODO Comments (Trouble)",
         },
         {
             "]t",

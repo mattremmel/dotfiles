@@ -17,9 +17,13 @@ return {
     },
     config = function()
         require("neotest").setup({
-            adapteres = {
-                require("neotest-dotnet"),
-                require("neotest-rust"),
+            adapters = {
+                require("neotest-dotnet")({
+                    discovery_root = "solution",
+                }),
+                require("neotest-rust")({
+                    args = { "--nocapture" }
+                }),
             },
         })
     end,
