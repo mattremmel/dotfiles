@@ -73,5 +73,5 @@ family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.offset]
-x = 0
-y = 0
+x = 0 # letter spacing
+y = 0 # line spacing

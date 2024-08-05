@@ -74,6 +74,7 @@ sudo systemctl enable --now NetworkManager
 - pacman-contrib
 - reflector
     - then set up automation via service
+- jq
 
 ## Bluetooth
 - bluez

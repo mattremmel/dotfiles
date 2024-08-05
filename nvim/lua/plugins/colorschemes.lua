@@ -6,7 +6,7 @@ return {
             palettes = {
                 nordfox = {
                     bg0 = "#141414",
-                    bg1 = "#222222",
+                    bg1 = "#1f1f1f",
                 },
             },
         },
