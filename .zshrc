@@ -58,17 +58,17 @@ alias folders='find . -maxdepth 1 -type d -print0 | xargs -0 du -sk | sort -rn'
 
 alias cat='bat'
 alias ps='procs'
-# alias ls='exa --icons -F -H --group-directories-first --git -1'
+# alias ls='eza --icons -F -H --group-directories-first --git -1'
 # alias l='ls -ahlF'
 
-alias ls='exa'                                                          # ls
-alias l='exa -lbF --git'                                                # list, size, type, git
-alias ll='exa -lbGF --git'                                              # long list
-alias llm='exa -lbGd --git --sort=modified'                             # long list, modified date sort
-alias la='exa -lbhHigUmuSa --time-style=long-iso --git --color-scale'   # all list
-alias lx='exa -lbhHigUmuSa@ --time-style=long-iso --git --color-scale'  # all + extended list
-alias lS='exa -1'                                                       # one column, just names
-alias lt='exa --tree --level=2'                                         # tree
+alias ls='eza'                                                          # ls
+alias l='eza -lbF --git'                                                # list, size, type, git
+alias ll='eza -lbGF --git'                                              # long list
+alias llm='eza -lbGd --git --sort=modified'                             # long list, modified date sort
+alias la='eza -lbhHigUmuSa --time-style=long-iso --git --color-scale'   # all list
+alias lx='eza -lbhHigUmuSa@ --time-style=long-iso --git --color-scale'  # all + extended list
+alias lS='eza -1'                                                       # one column, just names
+alias lt='eza --tree --level=2'                                         # tree
 
 alias grep='rg'
 alias lg='lazygit'
