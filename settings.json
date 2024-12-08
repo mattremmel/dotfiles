@@ -1,0 +1,146 @@
+{
+    // Windsurf
+    "windsurf.autocompleteSpeed": "fast",
+    // Git
+    "git.autofetch": true,
+    // Editor 
+    "editor.fontSize": 13,
+    "editor.lineHeight": 1.7,
+    "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.formatOnSave": true,
+    "editor.tokenColorCustomizations": {
+        "[Default Dark Modern]": {
+            "textMateRules": [
+                {
+                    "scope": "comment",
+                    "settings": {
+                        "foreground": "#777777",
+                    }
+                },
+                {
+                    "scope": "string.quoted.docstring",
+                    "settings": {
+                        "foreground": "#777777",
+                    }
+                },
+                {
+                    "scope": "string",
+                    "settings": {
+                        "foreground": "#79A978",
+                    }
+                }
+            ]
+        }
+    },
+    // todo-tree
+    "todo-tree.general.tags": [
+        "BUG",
+        "HACK",
+        "FIX",
+        "FIXME",
+        "NOTE",
+        "INFO",
+        "PERF",
+        "TODO",
+        "WARN",
+        "XXX",
+        "[ ]",
+        "[x]"
+    ],
+    "todo-tree.highlights.customHighlight": {
+        "TODO": {
+            "icon": "check",
+            "type": "tag",
+            "background": "#65adff",
+            "foreground": "#000000",
+            "iconColour": "#65adff",
+            "gutterIcon": true
+        },
+        "BUG": {
+            "icon": "bug",
+            "type": "tag",
+            "background": "#FF0000",
+            "foreground": "#ffffff",
+            "iconColour": "#FF0000",
+            "gutterIcon": true
+        },
+        "FIX": {
+            "icon": "bug",
+            "type": "tag",
+            "background": "#FF0000",
+            "foreground": "#ffffff",
+            "iconColour": "#FF0000",
+            "gutterIcon": true
+        },
+        "FIXME": {
+            "icon": "bug",
+            "type": "tag",
+            "background": "#FF0000",
+            "foreground": "#ffffff",
+            "iconColour": "#FF0000",
+            "gutterIcon": true
+        },
+        "WARN": {
+            "icon": "alert",
+            "type": "tag",
+            "background": "#ffee00",
+            "foreground": "#000000",
+            "iconColour": "#ffee00",
+            "gutterIcon": true
+        },
+        "HACK": {
+            "icon": "alert",
+            "type": "tag",
+            "background": "#ffee00",
+            "foreground": "#000000",
+            "iconColour": "#ffee00",
+            "gutterIcon": true
+        },
+        "XXX": {
+            "icon": "alert",
+            "type": "tag",
+            "background": "#ffee00",
+            "foreground": "#000000",
+            "iconColour": "#ffee00",
+            "gutterIcon": true
+        },
+        "NOTE": {
+            "icon": "info",
+            "type:": "tag",
+            "background": "#09ba00",
+            "foreground": "#000000",
+            "iconColour": "#09ba00",
+            "gutterIcon": true
+        },
+        "INFO": {
+            "icon": "info",
+            "type:": "tag",
+            "background": "#09ba00",
+            "foreground": "#000000",
+            "iconColour": "#09ba00",
+            "gutterIcon": true
+        },
+        "PERF": {
+            "icon": "flame",
+            "type:": "tag",
+            "background": "#e08bff",
+            "foreground": "#000000",
+            "iconColour": "#e08bff",
+            "gutterIcon": true
+        },
+    },
+    // Javasript / Typescript
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    // Rust
+    "rust-analyzer.check.command": "clippy",
+    "[rust]": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "rust-lang.rust-analyzer",
+    },
+}
