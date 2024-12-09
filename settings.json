@@ -3,6 +3,12 @@
     "windsurf.autocompleteSpeed": "fast",
     // Git
     "git.autofetch": true,
+    // Workbench
+    "workbench.colorTheme": "React Theme",
+    "workbench.statusBar.visible": false,
+    "workbench.activityBar.location": "top",
+    "workbench.tips.enabled": false,
+    "breadcrumbs.enabled": false,
     // Editor 
     "editor.fontSize": 13,
     "editor.lineHeight": 1.7,
@@ -143,4 +149,25 @@
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "rust-lang.rust-analyzer",
     },
+    // Vim
+    "vim.easymotion": true,
+    "vim.incsearch": true,
+    "vim.useSystemClipboard": true,
+    "vim.useCtrlKeys": true,
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.handleKeys": {
+        "<C-a>": false,
+        "<C-f>": false,
+    },
+    "vim.normalModeKeyBindingsNonRecursive": [
+        {
+            "before": ["<leader>", "h"],
+            "commands": [":nohl"]
+        },
+    ],
+    "extensions.experimental.affinity": {
+        "vscodevim.vim": 1,
+    },
+    "editor.minimap.enabled": false
 }
