@@ -11,7 +11,6 @@ return {
             enabled = true,
             timeout = 3000
         },
-        scroll = { enabled = true },
         -- TODO: I don't think this is working for git/folds
         statuscolumn = { enabled = true },
         quickfile = { enabled = true },
