@@ -3,9 +3,6 @@
     "windsurf.autocompleteSpeed": "fast",
     // Git
     "git.autofetch": true,
-    // Workbench
-    "workbench.colorTheme": "React Theme",
-    "workbench.statusBar.visible": false,
     "workbench.activityBar.location": "top",
     "workbench.tips.enabled": false,
     "breadcrumbs.enabled": false,
@@ -15,17 +12,12 @@
     "editor.fontFamily": "'JetBrainsMono Nerd Font', Menlo, Monaco, 'Courier New', monospace",
     "editor.fontLigatures": true,
     "editor.formatOnSave": true,
+    "editor.minimap.enabled": false,
     "editor.tokenColorCustomizations": {
         "[Default Dark Modern]": {
             "textMateRules": [
                 {
                     "scope": "comment",
-                    "settings": {
-                        "foreground": "#777777",
-                    }
-                },
-                {
-                    "scope": "string.quoted.docstring",
                     "settings": {
                         "foreground": "#777777",
                     }
@@ -162,12 +154,17 @@
     },
     "vim.normalModeKeyBindingsNonRecursive": [
         {
-            "before": ["<leader>", "h"],
-            "commands": [":nohl"]
+            "before": [
+                "<leader>",
+                "h"
+            ],
+            "commands": [
+                ":nohl"
+            ]
         },
     ],
     "extensions.experimental.affinity": {
         "vscodevim.vim": 1,
     },
-    "editor.minimap.enabled": false
+    "editor.fontWeight": "100",
 }
