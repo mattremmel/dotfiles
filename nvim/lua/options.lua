@@ -47,6 +47,14 @@ vim.opt.smartcase = true
 vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
+-- folds
+vim.opt.foldcolumn = '0' -- Show fold column
+vim.opt.foldlevel = 99   -- Ensure folds are open by default
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.foldmethod = "manual" -- Required for ufo
+vim.opt.foldexpr = ""
+
 -- auto completion / formatting / linting
 vim.opt.spell = false -- disabled for too many false positives
 -- vim.g.autoformat_enabled = true -- requires plugin

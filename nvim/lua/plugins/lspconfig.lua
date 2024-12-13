@@ -83,6 +83,12 @@ return {
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+        -- Add UFO folding support
+        capabilities.textDocument.foldingRange = {
+            dynamicRegistration = false,
+            lineFoldingOnly = true,
+        }
+
         local lspconfig = require("lspconfig")
         local servers_with_default_config = { "cssls", "html" }
 
