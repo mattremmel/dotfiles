@@ -3,7 +3,7 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    event = "BufWinEnter",
+    event = "BufAdd",
     keys = {
         { "L", "<cmd>BufferLineCycleNext<cr>", desc = "Cycle to Next Buffer" },
         { "H", "<cmd>BufferLineCyclePrev<cr>", desc = "Cycle to Previous Buffer" },

@@ -1,6 +1,6 @@
 return {
     "folke/which-key.nvim",
-    lazy = false,
+    event = "VeryLazy",
     config = function(_, opts)
         vim.o.timeout = true
         vim.o.timeoutlen = 300
@@ -17,6 +17,6 @@ return {
             { "<leader>t", group = "Terminal" },
             { "<leader>v", group = "Validation" },
             { "<leader>x", group = "Trouble" },
-       })
+        })
     end,
 }

@@ -3,7 +3,7 @@ return {
     dependencies = {
         "nvim-lua/plenary.nvim",
     },
-    event = { "BufEnter", "BufNewFile" },
+    event = { "BufReadPre", "BufNewFile" },
     cmd = { "TodoTelescope", "TodoTrouble" },
     keys = {
         { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Find TODO Comments" },

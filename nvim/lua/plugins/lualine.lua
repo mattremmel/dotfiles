@@ -3,7 +3,7 @@ return {
     dependencies = {
         "nvim-tree/nvim-web-devicons",
     },
-    event = "VeryLazy",
+    event = "BufWinEnter",
     opts = {
         options = {
             component_separators = "|",

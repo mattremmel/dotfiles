@@ -12,17 +12,17 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-telescope/telescope-fzf-native.nvim",
         },
-        cmd = { "Telescope" },
-            -- stylua: ignore
+        cmd = "Telescope",
+        -- stylua: ignore
         keys = {
             { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find Files" },
             { "<leader>fF", "<cmd>Telescope find_files hidden=true no-ignore=true<cr>", desc = "Find Files (+hidden)", },
             { "<leader>fw", "<cmd>Telescope live_grep<cr>", desc = "Find Word" },
             { "<leader>fW", "<cmd>lua require('telescope.builtin').live_grep{ additional_args = function(args) return vim.list_extend(args, { '--hidden', '--no-ignore' }) end}<cr>", desc = "Find Word (+hidden)", },
             { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Find Open Buffers" },
-            { "<leader>fB", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find Text in Current Buffer" },
+            { "<leader>fh", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Find Text in Current Buffer" },
             { "<leader>fk", "<cmd>Telescope keymaps<cr>", desc = "Find Keymaps" },
-            { "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Find Help Tags" },
+            { "<leader>fH", "<cmd>Telescope help_tags<cr>", desc = "Find Help Tags" },
             { "<leader>fc", "<cmd>Telescope commands<cr>", desc = "Find Plugin/User Commands" },
             { "<leader>fq", "<cmd>Telescope quickfix<cr>", desc = "Find Items in Quickfix List" },
             { "<leader>fl", "<cmd>Telescope loclist<cr>", desc = "Find Items in Location List" },
@@ -66,25 +66,47 @@ return {
                             return require("telescope.actions").move_selection_previous(...)
                         end,
                         ["<C-t>"] = function(bufnr)
-                            return require('trouble.sources.telescope').open(bufnr)
+                            return require("trouble.sources.telescope").open(bufnr)
                         end,
                         ["<C-T>"] = function(bufnr)
-                            return require('trouble.sources.telescope').add(bufnr)
-                        end
+                            return require("trouble.sources.telescope").add(bufnr)
+                        end,
                     },
                     n = {
                         ["q"] = function(...)
                             require("telescope.actions").close(...)
                         end,
                         ["<C-t>"] = function(bufnr)
-                            return require('trouble.sources.telescope').open(bufnr)
+                            return require("trouble.sources.telescope").open(bufnr)
                         end,
                         ["<C-T>"] = function(bufnr)
-                            return require('trouble.sources.telescope').add(bufnr)
-                        end
+                            return require("trouble.sources.telescope").add(bufnr)
+                        end,
                     },
                 },
             },
+            pickers = {
+                find_files = {
+                    find_command = {
+                        "rg",
+                        "--no-config",
+                        "--follow",
+                        "--files",
+                        "--sortr=modified",
+                    },
+                },
+            },
+            extensions = {
+                fzf = {},
+            },
         },
+        config = function(_, opts)
+            -- Setup
+            local telescope = require("telescope")
+            telescope.setup(opts)
+
+            -- Load extension
+            telescope.load_extension("fzf")
+        end,
     },
 }

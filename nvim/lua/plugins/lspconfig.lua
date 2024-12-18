@@ -1,6 +1,6 @@
 return {
     "neovim/nvim-lspconfig",
-    event = "VeryLazy",
+    event = { "BufReadPre", "BufNewFile" },
     config = function()
         local on_attach = function(client, bufnr)
             local function opts(desc)
@@ -101,6 +101,8 @@ return {
             })
         end
 
+        -- LUA
+
         lspconfig.lua_ls.setup({
             on_attach = on_attach,
             capabilities = capabilities,
@@ -124,6 +126,8 @@ return {
             },
         })
 
+        -- C# / .NET
+
         lspconfig.omnisharp.setup({
             on_attach = on_attach,
             on_init = on_init,
@@ -140,6 +144,55 @@ return {
                 },
             },
         })
+
+        -- JAVASCRIPT / TYPESCRIPT / HTML / CSS
+
+        lspconfig.cssls.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        lspconfig.html.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        lspconfig.ts_ls.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        lspconfig.tailwindcss.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+            root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+        })
+
+        lspconfig.eslint.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        -- PYTHON
+
+        lspconfig.pyright.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        lspconfig.ruff.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        -- RUST
 
         lspconfig.rust_analyzer.setup({
             on_attach = on_attach,

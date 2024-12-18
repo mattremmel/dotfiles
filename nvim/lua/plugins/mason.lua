@@ -8,10 +8,19 @@ return {
             "html-lsp",
             "lua-language-server",
             "omnisharp",
+            "pyright",
             "rust-analyzer",
+            "tailwindcss-language-server",
+            "typescript-language-server",
+
+            -- Linters
+            "eslint-lsp",
+            "ruff",
+
 
             -- Formatters
-            "prettier",
+            "black",
+            "prettierd",
             "stylua",
 
             -- Debuggers

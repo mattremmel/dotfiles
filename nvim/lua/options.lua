@@ -12,6 +12,7 @@ vim.opt.title = true
 vim.opt.signcolumn = "yes"
 vim.g.highlighturl_enabled = true -- requires plugin?
 vim.g.icons_enabled = true -- requires NerdFont
+vim.opt.colorcolumn = "100"
 
 -- rendering
 vim.opt.syntax = "off" -- use tree sitter instead
@@ -48,12 +49,9 @@ vim.opt.incsearch = true
 vim.opt.hlsearch = true
 
 -- folds
-vim.opt.foldcolumn = '0' -- Show fold column
-vim.opt.foldlevel = 99   -- Ensure folds are open by default
+vim.opt.foldenable = false
+vim.opt.foldmethod = "manual"
 vim.opt.foldlevelstart = 99
-vim.opt.foldenable = true
-vim.opt.foldmethod = "manual" -- Required for ufo
-vim.opt.foldexpr = ""
 
 -- auto completion / formatting / linting
 vim.opt.spell = false -- disabled for too many false positives
@@ -107,3 +105,30 @@ vim.g["loaded_node_provider"] = 0
 vim.g["loaded_python3_provider"] = 0
 vim.g["loaded_perl_provider"] = 0
 vim.g["loaded_ruby_provider"] = 0
+
+---------------
+-- autocommands
+---------------
+
+-- override colorcolumn for rustfmt defaults
+vim.api.nvim_create_autocmd("Filetype", { pattern = "rust", command = "set colorcolumn=100" })
+
+-- set smaller text width for text files
+local text = vim.api.nvim_create_augroup("text", { clear = true })
+for _, pat in ipairs({ "text", "markdown", "mail", "gitcommit" }) do
+    vim.api.nvim_create_autocmd("Filetype", {
+        pattern = pat,
+        group = text,
+        command = "setlocal spell tw=72 colorcolumn=73",
+    })
+end
+
+-- highlight yanked text
+vim.api.nvim_create_autocmd("TextYankPost", {
+    pattern = "*",
+    command = "silent! lua vim.highlight.on_yank({ timeout = 500 })",
+})
+
+-- prevent accidental writes to buffers that shouldn't be edited
+vim.api.nvim_create_autocmd("BufRead", { pattern = "*.orig", command = "set readonly" })
+vim.api.nvim_create_autocmd("BufRead", { pattern = "*.pacnew", command = "set readonly" })

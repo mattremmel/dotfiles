@@ -1,5 +1,5 @@
 return {
-    "JoosepAlviste/nvim-ts-context-commentstring",
+    "windwp/nvim-ts-autotag",
     ft = {
         "html",
         "xml",
@@ -12,4 +12,7 @@ return {
         "php",
         "mdx",
     },
+    config = function()
+        require("nvim-ts-autotag").setup()
+    end,
 }
