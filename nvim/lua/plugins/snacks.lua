@@ -8,23 +8,23 @@ return {
         input = { enabled = true },
         notifier = {
             enabled = true,
-            timeout = 3000
+            timeout = 3000,
         },
-        -- TODO: I don't think this is working for git/folds
         statuscolumn = { enabled = true },
         quickfile = { enabled = true },
         words = { enabled = true },
         styles = {
             zen = {
-                width = 180
-            }
-        }
+                width = 180,
+            },
+        },
     },
+        -- stylua: ignore
     keys = {
         { "<leader>z",  function() Snacks.zen() end, desc = "Toggle Zen Mode" },
         { "<leader>Z",  function() Snacks.zen.zoom() end, desc = "Toggle Zoom" },
         { "<leader>c", function() Snacks.bufdelete() end, desc = "Close Buffer" },
-        { "<C-p>", function() Snacks.terminal() end, desc = "Toggle Terminal" },
+        { "<C-p>", function() Snacks.terminal() end, mode = {"n", "t"}, desc = "Toggle Terminal" },
         { "<leader>n",  function() Snacks.scratch() end, desc = "Toggle Scratch Buffer" },
         { "<leader>h",  function() Snacks.notifier.show_history() end, desc = "Notification History" },
         { "<leader>td", function() Snacks.terminal.toggle("lazydocker") end, desc = "Toggle Terminal" },
@@ -36,4 +36,5 @@ return {
         { "]]",         function() Snacks.words.jump(vim.v.count1) end, desc = "Next Reference", mode = { "n", "t" } },
         { "[[",         function() Snacks.words.jump(-vim.v.count1) end, desc = "Prev Reference", mode = { "n", "t" } },
     }
+,
 }

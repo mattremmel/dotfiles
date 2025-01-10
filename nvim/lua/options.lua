@@ -12,7 +12,12 @@ vim.opt.title = true
 vim.opt.signcolumn = "yes"
 vim.g.highlighturl_enabled = true -- requires plugin?
 vim.g.icons_enabled = true -- requires NerdFont
-vim.opt.colorcolumn = "100"
+
+-- gui
+vim.o.guifont = "JetBrainsMono NFM Thin:h13"
+vim.opt.linespace = 10
+vim.g.neovide_padding_left = 15
+vim.g.neovide_padding_right = 15
 
 -- rendering
 vim.opt.syntax = "off" -- use tree sitter instead
@@ -109,20 +114,6 @@ vim.g["loaded_ruby_provider"] = 0
 ---------------
 -- autocommands
 ---------------
-
--- override colorcolumn for rustfmt defaults
-vim.api.nvim_create_autocmd("Filetype", { pattern = "rust", command = "set colorcolumn=100" })
-
--- set smaller text width for text files
-local text = vim.api.nvim_create_augroup("text", { clear = true })
-for _, pat in ipairs({ "text", "markdown", "mail", "gitcommit" }) do
-    vim.api.nvim_create_autocmd("Filetype", {
-        pattern = pat,
-        group = text,
-        command = "setlocal spell tw=72 colorcolumn=73",
-    })
-end
-
 -- highlight yanked text
 vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = "*",

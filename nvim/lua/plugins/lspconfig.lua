@@ -1,5 +1,10 @@
 return {
     "neovim/nvim-lspconfig",
+    dependencies = {
+        -- This is not a strict dependency for lspconfig
+        -- but provides lsp extensions for omnisharp
+        "Hoffs/omnisharp-extended-lsp.nvim",
+    },
     event = { "BufReadPre", "BufNewFile" },
     config = function()
         local on_attach = function(client, bufnr)
@@ -83,23 +88,7 @@ return {
 
         local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-        -- Add UFO folding support
-        capabilities.textDocument.foldingRange = {
-            dynamicRegistration = false,
-            lineFoldingOnly = true,
-        }
-
         local lspconfig = require("lspconfig")
-        local servers_with_default_config = { "cssls", "html" }
-
-        -- lsps with default config
-        for _, lsp in ipairs(servers_with_default_config) do
-            lspconfig[lsp].setup({
-                on_attach = on_attach,
-                on_init = on_init,
-                capabilities = capabilities,
-            })
-        end
 
         -- LUA
 
@@ -129,18 +118,30 @@ return {
         -- C# / .NET
 
         lspconfig.omnisharp.setup({
-            on_attach = on_attach,
+            on_attach = function(client, bufnr)
+                on_attach(client, bufnr)
+
+                -- omnisharp extended overrides
+                -- stylua: ignore
+                if client and client.name == "omnisharp" then
+                    vim.keymap.set("n", "gd", require("omnisharp_extended").telescope_lsp_definition, { buffer = bufnr, desc = "Find Declaration" })
+                    vim.keymap.set("n", "gt", require("omnisharp_extended").telescope_lsp_type_definition, { buffer = bufnr, desc = "Find Type Declaration" })
+                    vim.keymap.set("n", "gr", require("omnisharp_extended").telescope_lsp_references, { buffer = bufnr, desc = "Find References" })
+                    vim.keymap.set("n", "gi", require("omnisharp_extended").telescope_lsp_implementation, { buffer = bufnr, desc = "Find Implementation" })
+                end
+            end,
             on_init = on_init,
             capabilities = capabilities,
             cmd = { "omnisharp", "--languageserver", "--hostPID", tostring(vim.fn.getpid()) },
+            filetypes = { "cs", "vb", "csproj", "sln", "slnx", "csx" },
             settings = {
-                ["omnisharp"] = {
-                    enableRoslynAnalyzers = true,
-                    organizeImportsOnFormat = true,
-                    useModernNet = true,
-                    RoslynExtensionsOptions = {
-                        EnableEditorConfigSupport = true,
-                    },
+                FormattingOptions = {
+                    EnableEditorConfigSupport = true,
+                    OrganizeImports = true,
+                },
+                RoslynExtensionsOptions = {
+                    EnableAnalyzersSupport = true,
+                    EnableImportCompletion = true,
                 },
             },
         })
@@ -180,7 +181,7 @@ return {
 
         -- PYTHON
 
-        lspconfig.pyright.setup({
+        lspconfig.basedpyright.setup({
             on_attach = on_attach,
             on_init = on_init,
             capabilities = capabilities,
