@@ -171,6 +171,16 @@ return {
             on_init = on_init,
             capabilities = capabilities,
             root_dir = lspconfig.util.root_pattern("package.json", "tsconfig.json", ".git"),
+            settings = {
+                tailwindCSS = {
+                    experimental = {
+                        classRegex = {
+                            { "cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]" },
+                            { "cx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)" },
+                        },
+                    },
+                },
+            },
         })
 
         lspconfig.eslint.setup({
