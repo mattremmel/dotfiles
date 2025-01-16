@@ -115,6 +115,10 @@ return {
             },
         })
 
+        -- Markdown
+
+        lspconfig.marksman.setup({})
+
         -- C# / .NET
 
         lspconfig.omnisharp.setup({

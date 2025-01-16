@@ -4,11 +4,12 @@ return {
     opts = {
         ensure_installed = {
             -- LSP's
+            "basedpyright",
             "css-lsp",
             "html-lsp",
             "lua-language-server",
+            "marksman",
             "omnisharp",
-            "basedpyright",
             "rust-analyzer",
             "tailwindcss-language-server",
             "typescript-language-server",
