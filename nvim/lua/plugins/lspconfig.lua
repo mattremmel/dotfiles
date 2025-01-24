@@ -22,8 +22,8 @@ return {
             map("n", "gt", "<cmd>Telescope lsp_type_definitions<cr>", opts("Find Type Definition"))
             map("n", "gI", "<cmd>Telescope lsp_incoming_calls<cr>", opts("Find Incoming Call"))
             map("n", "gO", "<cmd>Telescope lsp_outgoing_calls<cr>", opts("Find Outgoing Call"))
-            map("n", "gs", "<cmd>Telescope lsp_document_symbols<cr>", opts("Find Document Symbol"))
-            map("n", "gS", "<cmd>Telescope lsp_workspace_symbols<cr>", opts("Find Workspace Symbol"))
+            map("n", "<leader>fs", "<cmd>Telescope lsp_document_symbols<cr>", opts("Find Document Symbol"))
+            map("n", "<leader>fS", "<cmd>Telescope lsp_workspace_symbols<cr>", opts("Find Workspace Symbol"))
             map("n", "K", vim.lsp.buf.hover, opts("Show Hover"))
 
             map({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts("Code Action"))
@@ -117,7 +117,26 @@ return {
 
         -- Markdown
 
-        lspconfig.marksman.setup({})
+        lspconfig.marksman.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        -- JSON
+
+        lspconfig.jsonls.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        -- Bash
+        lspconfig.bashls.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
 
         -- C# / .NET
 
@@ -144,10 +163,25 @@ return {
                     OrganizeImports = true,
                 },
                 RoslynExtensionsOptions = {
+                    enableEditorConfigSupport = true,
                     EnableAnalyzersSupport = true,
                     EnableImportCompletion = true,
                 },
             },
+        })
+
+        -- Docker
+
+        lspconfig.docker_compose_language_service.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        lspconfig.dockerls.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
         })
 
         -- JAVASCRIPT / TYPESCRIPT / HTML / CSS
@@ -188,6 +222,22 @@ return {
         })
 
         lspconfig.eslint.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        -- Cucumber
+
+        lspconfig.cucumber_language_server.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
+        -- GraphQL
+
+        lspconfig.graphql.setup({
             on_attach = on_attach,
             on_init = on_init,
             capabilities = capabilities,

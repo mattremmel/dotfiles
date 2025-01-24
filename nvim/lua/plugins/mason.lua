@@ -2,11 +2,18 @@ return {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
     opts = {
+        -- TODO: Pact ls, snyk, sql, typst, yamlls
         ensure_installed = {
             -- LSP's
             "basedpyright",
+            "bash-language-server",
             "css-lsp",
+            "cucumber-language-server",
+            "docker-compose-language-service",
+            "dockerfile-language-server",
             "html-lsp",
+            "graphql-language-service-cli",
+            "json-lsp",
             "lua-language-server",
             "marksman",
             "omnisharp",
