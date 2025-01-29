@@ -233,6 +233,12 @@ return {
             on_attach = on_attach,
             on_init = on_init,
             capabilities = capabilities,
+            settings = {
+                cucumber = {
+                    features = { "**/*.feature" },
+                    glue = { "**/features/step_definitions/*.ts" },
+                },
+            },
         })
 
         -- GraphQL
