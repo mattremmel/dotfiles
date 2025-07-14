@@ -3,7 +3,7 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     events = { "VeryLazy" },
     keys = {
-        { "-", "<cmd>Oil<cr>", { desc = "Open Oil File Manager" } },
+        { "<leader>e", "<cmd>Oil<cr>", { desc = "Open Oil File Manager" } },
     },
     opts = {},
 }
