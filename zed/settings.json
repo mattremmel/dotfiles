@@ -1,0 +1,78 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "edit_predictions": {
+    "mode": "eager",
+    "copilot": {
+      "proxy": null,
+      "proxy_no_verify": null,
+      "enterprise_uri": null
+    },
+    "enabled_in_text_threads": false
+  },
+  "features": {
+    "edit_prediction_provider": "copilot"
+  },
+  "icon_theme": "Catppuccin Mocha",
+  "vim_mode": true,
+  "ui_font_size": 14,
+  "buffer_font_size": 13,
+  "buffer_font_family": "JetBrainsMono Nerd Font",
+  "buffer_font_weight": 200,
+  "relative_line_numbers": true,
+  "soft_wrap": "editor_width",
+  "wrap_guides": [120],
+  "theme": {
+    "mode": "system",
+    "light": "One Light",
+    "dark": "One Dark"
+  },
+  "inlay_hints": {
+    "enabled": false
+  },
+  "minimap": {
+    "show": "auto"
+  },
+  "languages": {},
+  "lsp": {
+    "tailwindcss-language-server": {
+      "settings": {
+        "classAttributes": ["class", "className", "ngClass", "styles"],
+        "classFunctions": ["tv", "cva", "cn"]
+      }
+    }
+  },
+  "file_scan_exclusions": [
+    "**/.git",
+    "**/.svn",
+    "**/.hg",
+    "**/CVS",
+    "**/.DS_Store",
+    "**/Thumbs.db",
+    "**/.classpath",
+    "**/.settings",
+    // above is default from Zed
+    "**/out",
+    "**/dist",
+    "**/.husky",
+    "**/.turbo",
+    "**/.vscode-test",
+    "**/.vscode",
+    "**/.next",
+    "**/.storybook",
+    "**/.tap",
+    "**/.nyc_output",
+    "**/report",
+    "**/node_modules"
+  ],
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  }
+}

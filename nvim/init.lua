@@ -31,7 +31,10 @@ vim.cmd("colorscheme nordfox")
 vim.opt.number = true -- Line numbers
 vim.opt.relativenumber = true -- Relative line numbers
 vim.opt.cursorline = false -- Highlight current line
-vim.opt.wrap = false -- Don't wrap lines
+vim.opt.wrap = true -- Wrap lines
+vim.opt.breakindent = true
+vim.opt.showbreak = "↪ " -- Make long lines wrap smartly
+vim.opt.linebreak = true
 vim.opt.scrolloff = 10 -- Keep 10 lines above/below cursor
 vim.opt.sidescrolloff = 8 -- Keep 8 columns left/right of cursor
 
@@ -52,7 +55,7 @@ vim.opt.incsearch = true -- Show matches as you type
 -- Visual settings
 vim.opt.termguicolors = true -- Enable 24-bit colors
 vim.opt.signcolumn = "yes" -- Always show sign column
-vim.opt.colorcolumn = "100" -- Show column at 100 characters
+-- vim.opt.colorcolumn = "100" -- Show column at 100 characters
 vim.opt.showmatch = true -- Highlight matching brackets
 vim.opt.matchtime = 2 -- How long to show matching bracket
 vim.opt.cmdheight = 1 -- Command line height
@@ -92,8 +95,7 @@ vim.opt.modifiable = true -- Allow buffer modifications
 vim.opt.encoding = "UTF-8" -- Set encoding
 
 -- Cursor settings
-vim.opt.guicursor =
-    "n-v-c:block,i-ci-ve:block,r-cr:hor20,o:hor50,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor,sm:block-blinkwait175-blinkoff150-blinkon175"
+vim.opt.guicursor = "i-ci-ve:ver25"
 
 -- Folding settings
 vim.opt.foldmethod = "expr" -- Use expression for folding

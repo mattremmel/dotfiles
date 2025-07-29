@@ -1,0 +1,80 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "context": "Workspace",
+    "bindings": {
+      // TODO: This needs to not fire when editing
+      // "space shift-e": "workspace::ToggleLeftDock"
+    }
+  },
+  {
+    "context": "Editor && vim_mode == normal && !VimWaiting && !menu",
+    "bindings": {
+      // QoL
+      "j": ["workspace::SendKeystrokes", "g j"],
+      "k": ["workspace::SendKeystrokes", "g k"],
+      "space ,": ["workspace::SendKeystrokes", "shift-a , escape"],
+      "space ;": ["workspace::SendKeystrokes", "shift-a ; escape"],
+
+      // Buffer
+      "space w": "workspace::Save",
+      "space c": "pane::CloseActiveItem",
+      "shift-h": "pane::ActivatePreviousItem",
+      "shift-l": "pane::ActivateNextItem",
+
+      // Panes
+      // TODO: Need bindings for getting back into editor
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      // TODO: These might not fire if they've been overridden
+      // "ctrl-k": ["workspace::ActivatePaneInDirection", "Up"],
+      // "ctrl-j": ["workspace::ActivatePaneInDirection", "Down"],
+
+      // Find
+      "space f f": "file_finder::Toggle",
+      "space f w": "pane::DeploySearch",
+      "space f b": "outline::Toggle",
+      "space f p": "project_symbols::Toggle",
+
+      // LSP
+      "space l a": "editor::ToggleCodeActions",
+      "space r f": "editor::Format",
+      "space r F": "workspace::SaveWithoutFormat",
+      "space r r": "editor::Rename",
+
+      // Panels
+      "space e f": "pane::RevealInProjectPanel",
+      "space e o": "outline_panel::ToggleFocus"
+      // TODO: Shortcuts for opening and closing file exporer, outline panel, terminal, and other views
+    }
+  },
+  {
+    // TODO: Only apply if menu showing
+    "context": "",
+    "bindings": {
+      "ctrl-j": "menu::SelectNext",
+      "ctrl-k": "menu::SelectPrevious"
+    }
+  },
+  {
+    "context": "(Editor && (showing_code_completions || showing_completions))",
+    "bindings": {
+      "ctrl-j": "editor::ContextMenuNext",
+      "ctrl-k": "editor::ContextMenuPrevious"
+    }
+  },
+  {
+    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "bindings": {
+      // Toggles
+      "space u w": "editor::ToggleSoftWrap",
+      "space u i": "editor::ToggleInlayHints"
+    }
+  }
+]

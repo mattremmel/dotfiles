@@ -227,6 +227,14 @@ return {
             capabilities = capabilities,
         })
 
+        -- Svelte
+        --
+        lspconfig.svelte.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
+        })
+
         -- Cucumber
 
         lspconfig.cucumber_language_server.setup({
@@ -276,6 +284,14 @@ return {
                     },
                 },
             },
+        })
+
+        -- TYPST
+
+        lspconfig.tinymist.setup({
+            on_attach = on_attach,
+            on_init = on_init,
+            capabilities = capabilities,
         })
     end,
 }

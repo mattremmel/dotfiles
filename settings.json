@@ -132,6 +132,24 @@
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
+    "tailwindCSS.classAttributes": [
+        "class",
+        "className",
+        "ngClass",
+        "styles",
+        "class:list"
+    ],
+    "tailwindCSS.classFunctions": [
+        "cva",
+        "cx",
+        "tv"
+    ],
+    "tailwindCSS.experimental.classRegex": [
+        [
+            "([\"'`][^\"'`]*.*?[\"'`])",
+            "[\"'`]([^\"'`]*).*?[\"'`]"
+        ]
+    ],
     "[typescriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
@@ -167,4 +185,11 @@
         "vscodevim.vim": 1,
     },
     "editor.fontWeight": "100",
+    "windsurf.explainAndFixInCurrentConversation": false,
+    "windsurf.enableTabToJump": true,
+    "windsurf.autoExecutionPolicy": "off",
+    "svelte.ask-to-enable-ts-plugin": false,
+    "svelte.enable-ts-plugin": true,
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Default Dark+",
 }

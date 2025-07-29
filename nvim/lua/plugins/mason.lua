@@ -18,7 +18,9 @@ return {
             "marksman",
             "omnisharp",
             "rust-analyzer",
+            "svelte-language-server",
             "tailwindcss-language-server",
+            "tinymist",
             "typescript-language-server",
 
             -- Linters
